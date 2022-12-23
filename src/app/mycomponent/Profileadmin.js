@@ -1,6 +1,8 @@
 import { React, useEffect, useState } from 'react';
 
 import axios from 'axios.js';
+import TextField from '@mui/material/TextField';
+import MenuItem from '@mui/material/MenuItem';
 import EditIcon from '@mui/icons-material/Edit';
 
 import './Profile.css';
@@ -58,79 +60,75 @@ const Profileadmin = (props) => {
         <EditIcon></EditIcon>
       </button>
       <form onSubmit={profile_submit}>
-        <div className="profile-inner-1">
-          <div className="profile-inner-2">
-            <label>Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-            <input
-              type={'text'}
-              disabled={disab}
-              value={Name}
-              name={'Name'}
-              onChange={(event) => {
-                update_Name(event.target.value);
-              }}
-            ></input>
-          </div>
-        </div>
+        <TextField
+          style={{ width: '70%' }}
+          id="outlined-required"
+          label="Name"
+          type="text"
+          disabled={disab}
+          sx={{ mb: 3 }}
+          value={Name}
+          name={'Name'}
+          onChange={(event) => {
+            update_Name(event.target.value);
+          }}
+        />
 
-        <div className="profile-inner-1">
-          <div className="profile-inner-2">
-            <label>Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-            <input
-              type={'text'}
-              disabled={true}
-              value={Email}
-              name={'Email'}
-              onChange={(event) => {
-                update_Email(event.target.value);
-              }}
-            ></input>
-          </div>
-        </div>
-        <div className="profile-inner-1">
-          <div className="profile-inner-2">
-            <label>Phone number</label>
-            <input
-              type={'text'}
-              disabled={disab}
-              value={Phno}
-              name={'Phno'}
-              onChange={(event) => {
-                update_Phno(event.target.value);
-              }}
-            ></input>
-          </div>
-        </div>
+        <TextField
+          style={{ width: '70%' }}
+          id="outlined-required"
+          label="Email"
+          type="text"
+          disabled
+          sx={{ mb: 3 }}
+          value={Email}
+          name={'Email'}
+          onChange={(event) => {
+            update_Email(event.target.value);
+          }}
+        />
 
-        <div className="profile-inner-1">
-          <div className="profile-inner-2">
-            <label>Address&nbsp;&nbsp;&nbsp;</label>
-            <input
-              type={'text'}
-              disabled={disab}
-              value={Address}
-              name={'Address'}
-              onChange={(event) => {
-                update_Address(event.target.value);
-              }}
-            ></input>
-          </div>
-        </div>
+        <TextField
+          style={{ width: '70%' }}
+          id="outlined-required"
+          label="Phone number"
+          type="text"
+          disabled={disab}
+          sx={{ mb: 3 }}
+          value={Phno}
+          name={'Phno'}
+          onChange={(event) => {
+            update_Phno(event.target.value);
+          }}
+        />
 
-        <div className="profile-inner-1">
-          <div className="profile-inner-2">
-            <label>City&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-            <input
-              type={'text'}
-              disabled={disab}
-              value={city}
-              name={'city'}
-              onChange={(event) => {
-                update_city(event.target.value);
-              }}
-            ></input>
-          </div>
-        </div>
+        <TextField
+          style={{ width: '70%' }}
+          id="outlined-required"
+          label="Address"
+          type="text"
+          disabled={disab}
+          sx={{ mb: 3 }}
+          value={Address}
+          name={'Address'}
+          onChange={(event) => {
+            update_Address(event.target.value);
+          }}
+        />
+
+        <TextField
+          style={{ width: '70%' }}
+          id="outlined-required"
+          label="City"
+          type="text"
+          disabled={disab}
+          sx={{ mb: 3 }}
+          value={city}
+          name={'city'}
+          onChange={(event) => {
+            update_city(event.target.value);
+          }}
+        />
 
         {!disab && <input id="sub-btn" type={'submit'} disabled={disab} value={'edit'}></input>}
       </form>

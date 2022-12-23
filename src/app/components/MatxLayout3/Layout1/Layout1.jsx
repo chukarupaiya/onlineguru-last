@@ -152,7 +152,13 @@ const Layout1 = () => {
             )}
 
             <Box flexGrow={1} position="relative">
-              <MatxSuspense>{<Listclass data={class_list} id={3}></Listclass>}</MatxSuspense>
+              <MatxSuspense>
+                {class_list != undefined ? (
+                  <Listclass data={class_list} id={3}></Listclass>
+                ) : (
+                  <p style={{ textAlign: 'center', padding: '30px' }}>No Teacher is Available</p>
+                )}
+              </MatxSuspense>
             </Box>
           </ContentBox>
         )}

@@ -1,5 +1,6 @@
 import { React, useEffect, useState } from 'react';
-
+import TextField from '@mui/material/TextField';
+import MenuItem from '@mui/material/MenuItem';
 import axios from 'axios.js';
 import EditIcon from '@mui/icons-material/Edit';
 
@@ -21,6 +22,21 @@ const Profileteacher = (props) => {
   const [district, update_district] = useState(props.value.district);
   const [Country, update_Country] = useState(props.value.Country);
   const [postal_code, update_postal_code] = useState(props.value.postal_code);
+
+  const gender_array = [
+    {
+      value: '1',
+      label: 'male',
+    },
+    {
+      value: '0',
+      label: 'female',
+    },
+    {
+      value: '3',
+      label: 'others',
+    },
+  ];
 
   const profile_submit = async (event) => {
     event.preventDefault();
@@ -68,170 +84,147 @@ const Profileteacher = (props) => {
         <EditIcon></EditIcon>
       </button>
       <form onSubmit={profile_submit}>
-        <div className="profile-inner-1">
-          <div className="profile-inner-2">
-            <label>
-              Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              &nbsp;&nbsp;
-            </label>
-            <input
-              type={'text'}
-              disabled={disab}
-              value={Name}
-              name={'Name'}
-              onChange={(event) => {
-                update_Name(event.target.value);
-              }}
-            ></input>
-          </div>
-        </div>
-        <div className="profile-inner-1">
-          <div className="profile-inner-2">
-            <label>
-              subject&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            </label>
-            <input
-              type={'text'}
-              disabled={disab}
-              value={subject}
-              name={'subject'}
-              onChange={(event) => {
-                update_subject(event.target.value);
-              }}
-            ></input>
-          </div>
-        </div>
+        <TextField
+          style={{ width: '70%' }}
+          id="outlined-required"
+          label="Name"
+          type="text"
+          disabled={disab}
+          sx={{ mb: 3 }}
+          value={Name}
+          name={'Name'}
+          onChange={(event) => {
+            update_Name(event.target.value);
+          }}
+        />
+        <TextField
+          style={{ width: '70%' }}
+          id="outlined-required"
+          label="subject"
+          type="text"
+          disabled
+          sx={{ mb: 3 }}
+          value={subject}
+          name={'subject'}
+          onChange={(event) => {
+            update_subject(event.target.value);
+          }}
+        />
+        <TextField
+          style={{ width: '70%' }}
+          id="outlined-required"
+          label="Email"
+          type="text"
+          disabled
+          sx={{ mb: 3 }}
+          value={Email}
+          name={'Email'}
+          onChange={(event) => {
+            update_Email(event.target.value);
+          }}
+        />
+        <TextField
+          style={{ width: '70%' }}
+          id="outlined-required"
+          label="prefered start time"
+          type="text"
+          disabled={disab}
+          sx={{ mb: 3 }}
+          value={prefered_start_time}
+          name={'prefered_start_time'}
+          onChange={(event) => {
+            update_prefered_start_time(event.target.value);
+          }}
+        />
+        <TextField
+          style={{ width: '70%' }}
+          id="outlined-required"
+          label="prefered end time"
+          type="text"
+          disabled={disab}
+          sx={{ mb: 3 }}
+          value={prefered_end_time}
+          name={'prefered_end_time'}
+          onChange={(event) => {
+            update_prefered_end_time(event.target.value);
+          }}
+        />
 
-        <div className="profile-inner-1">
-          <div className="profile-inner-2">
-            <label>
-              Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              &nbsp;
-            </label>
-            <input
-              type={'text'}
-              disabled={true}
-              value={Email}
-              name={'Email'}
-              onChange={(event) => {
-                update_Email(event.target.value);
-              }}
-            ></input>
-          </div>
-        </div>
+        <TextField
+          style={{ width: '70%' }}
+          id="outlined-select-currency"
+          select
+          label="Gender"
+          disabled={disab}
+          name={'gender'}
+          sx={{ mb: 3 }}
+          defaultValue={'' + gender}
+          onChange={(event) => {
+            update_gender(event.target.value);
+          }}
+        >
+          {gender_array.map((option) => (
+            <MenuItem key={option.value} value={option.value}>
+              {option.label}
+            </MenuItem>
+          ))}
+        </TextField>
 
-        <div className="profile-inner-1">
-          <div className="profile-inner-2">
-            <label>prefered start time</label>
-            <input
-              type={'time'}
-              disabled={disab}
-              value={prefered_start_time}
-              name={'prefered_start_time'}
-              onChange={(event) => {
-                update_prefered_start_time(event.target.value);
-              }}
-            ></input>
-          </div>
+        <TextField
+          style={{ width: '70%' }}
+          id="outlined-required"
+          label="Phone number"
+          type="text"
+          disabled={disab}
+          sx={{ mb: 3 }}
+          value={phno}
+          name={'phno'}
+          onChange={(event) => {
+            update_phno(event.target.value);
+          }}
+        />
 
-          <div className="profile-inner-2">
-            <label>prefered end time</label>
-            <input
-              type={'time'}
-              disabled={disab}
-              value={prefered_end_time}
-              name={'prefered_end_time'}
-              onChange={(event) => {
-                update_prefered_end_time(event.target.value);
-              }}
-            ></input>
-          </div>
-        </div>
+        <TextField
+          style={{ width: '70%' }}
+          id="outlined-required"
+          label="Experience"
+          type="text"
+          disabled={disab}
+          sx={{ mb: 3 }}
+          value={yearsofexperience}
+          name={'yearsofexperience'}
+          onChange={(event) => {
+            update_yearsofexperience(event.target.value);
+          }}
+        />
 
-        <div className="profile-inner-1">
-          <div className="profile-inner-2">
-            <label>
-              Gender&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            </label>
-            <select
-              id="sele2"
-              value={gender}
-              name={'gender'}
-              onChange={(event) => {
-                update_gender(event.target.value);
-              }}
-            >
-              <option value="1">Male</option>
-              <option value="0">Female</option>
-              <option value="3">others</option>
-            </select>
-          </div>
-        </div>
+        <TextField
+          style={{ width: '70%' }}
+          id="outlined-required"
+          label="Address"
+          type="text"
+          disabled={disab}
+          sx={{ mb: 3 }}
+          value={Address}
+          name={'Address'}
+          onChange={(event) => {
+            update_Address(event.target.value);
+          }}
+        />
 
-        <div className="profile-inner-1">
-          <div className="profile-inner-2">
-            <label>Phone number&nbsp;</label>
-            <input
-              type={'text'}
-              disabled={disab}
-              value={phno}
-              name={'phno'}
-              onChange={(event) => {
-                update_phno(event.target.value);
-              }}
-            ></input>
-          </div>
-        </div>
-
-        <div className="profile-inner-1">
-          <div className="profile-inner-2">
-            <label>Experience&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-            <input
-              type={'text'}
-              disabled={disab}
-              value={yearsofexperience}
-              name={'yearsofexperience'}
-              onChange={(event) => {
-                update_yearsofexperience(event.target.value);
-              }}
-            ></input>
-          </div>
-        </div>
-
-        <div className="profile-inner-1">
-          <div className="profile-inner-2">
-            <label>
-              Address&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            </label>
-            <input
-              type={'text'}
-              disabled={disab}
-              value={Address}
-              name={'Address'}
-              onChange={(event) => {
-                update_Address(event.target.value);
-              }}
-            ></input>
-          </div>
-        </div>
-
-        <div className="profile-inner-1">
-          <div className="profile-inner-2">
-            <label>
-              City&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            </label>
-            <input
-              type={'text'}
-              disabled={disab}
-              value={City}
-              name={'City'}
-              onChange={(event) => {
-                update_City(event.target.value);
-              }}
-            ></input>
-          </div>
-        </div>
+        <TextField
+          style={{ width: '70%' }}
+          id="outlined-required"
+          label="City"
+          type="text"
+          disabled={disab}
+          sx={{ mb: 3 }}
+          value={City}
+          name={'City'}
+          onChange={(event) => {
+            update_City(event.target.value);
+          }}
+        />
 
         {!disab && <input id="sub-btn" type={'submit'} disabled={disab} value={'edit'}></input>}
       </form>

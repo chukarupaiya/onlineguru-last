@@ -2,14 +2,13 @@ import { React } from 'react';
 import './Classdisplayblock.css';
 import { MatxSuspense } from 'app/components';
 
+import img1 from './teacher.webp';
+
 const TeacherblockDisplay = (props) => {
   return (
     <MatxSuspense>
       <div className="outer-div">
-        <img
-          style={{ height: '70%', objectFit: 'contain' }}
-          src="https://unblast.com/wp-content/uploads/2020/09/Male-Teacher-Illustration.jpg"
-        ></img>
+        <img style={{ height: '70%', objectFit: 'contain' }} src={img1}></img>
         <div className="inner-div">
           <h2>{props.v2}</h2>
           <h4>{props.v1}</h4>

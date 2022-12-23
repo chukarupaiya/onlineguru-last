@@ -134,27 +134,31 @@ const Layout1 = () => {
     update_classroom(result.data.result);
   }, []);
 
-  const temp = 0;
+  let item = [];
 
-  const item = classroom.map((d) => {
-    return (
-      <tr className="inner-row">
-        <td>{d.bt_id}</td>
-        <td>{d.user_id}</td>
-        <td>{d.balance}</td>
-        <td>
-          <button
-            className={'edit-btn-3'}
-            onClick={() => {
-              update_credit(d.user_id);
-            }}
-          >
-            update credit
-          </button>
-        </td>
-      </tr>
-    );
-  });
+  if (classroom != undefined) {
+    const item1 = classroom.map((d) => {
+      return (
+        <tr className="inner-row">
+          <td>{d.bt_id}</td>
+          <td>{d.user_id}</td>
+          <td>{d.balance}</td>
+          <td>
+            <button
+              className={'edit-btn-3'}
+              onClick={() => {
+                update_credit(d.user_id);
+              }}
+            >
+              update credit
+            </button>
+          </td>
+        </tr>
+      );
+    });
+
+    item = item1;
+  }
 
   return (
     <Layout1Root className={layoutClasses}>

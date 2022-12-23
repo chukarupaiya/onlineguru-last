@@ -1,4 +1,6 @@
 import { LoadingButton } from '@mui/lab';
+import * as React from 'react';
+
 import { Card, Checkbox, Grid, TextField } from '@mui/material';
 import { Box, styled, useTheme } from '@mui/system';
 import { Paragraph } from 'app/components/Typography';
@@ -8,7 +10,18 @@ import { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import * as Yup from 'yup';
 
+import OutlinedInput from '@mui/material/OutlinedInput';
+import InputLabel from '@mui/material/InputLabel';
+import InputAdornment from '@mui/material/InputAdornment';
+import IconButton from '@mui/material/IconButton';
+
+import FormControl from '@mui/material/FormControl';
+
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
+
 import image1 from '../../components/Main_picture.jpg';
+import Header from 'components/Header';
 import './Register.css';
 
 const FlexBox = styled(Box)(() => ({ display: 'flex', alignItems: 'center' }));
@@ -23,7 +36,7 @@ const ContentBox = styled(Box)(() => ({
 }));
 
 const JWTRoot = styled(JustifyBox)(() => ({
-  backgroundImage: `linear-gradient(to right, #f9b83a, #f8d32a)`,
+  backgroundImage: `linear-gradient(to bottom, #f9b83a, #f8d32a)`,
   minHeight: '100% !important',
   '& .card': {
     maxWidth: 800,
@@ -67,8 +80,15 @@ const JwtLogin = () => {
     }
   };
 
+  const [showPassword, setShowPassword] = React.useState(false);
+
+  const handleClickShowPassword = () => setShowPassword((show) => !show);
+
+  const handleMouseDownPassword = () => {};
+
   return (
     <JWTRoot>
+      <Header></Header>
       <Card
         className="card"
         style={{ boxShadow: ' rgb(0, 0, 0) 0px 5px 15px', marginTop: '0px', paddingTop: '0px' }}
@@ -92,7 +112,7 @@ const JwtLogin = () => {
                   <form onSubmit={handleSubmit}>
                     <TextField
                       fullWidth
-                      size="small"
+                      size="medium"
                       type="email"
                       name="email"
                       label="Email"
@@ -105,7 +125,7 @@ const JwtLogin = () => {
                       sx={{ mb: 3 }}
                     />
 
-                    <TextField
+                    {/* <TextField
                       fullWidth
                       size="small"
                       name="password"
@@ -118,7 +138,36 @@ const JwtLogin = () => {
                       helperText={touched.password && errors.password}
                       error={Boolean(errors.password && touched.password)}
                       sx={{ mb: 1.5 }}
-                    />
+                    /> */}
+                    <FormControl sx={{ m: 0, width: '100%' }} variant="outlined">
+                      <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
+                      <OutlinedInput
+                        id="outlined-adornment-password"
+                        type={showPassword ? 'text' : 'password'}
+                        endAdornment={
+                          <InputAdornment position="end">
+                            <IconButton
+                              aria-label="toggle password visibility"
+                              onClick={handleClickShowPassword}
+                              onMouseDown={handleMouseDownPassword}
+                              edge="end"
+                            >
+                              {showPassword ? <VisibilityOff /> : <Visibility />}
+                            </IconButton>
+                          </InputAdornment>
+                        }
+                        size="medium"
+                        name="password"
+                        label="Password"
+                        variant="outlined"
+                        onBlur={handleBlur}
+                        value={values.password}
+                        onChange={handleChange}
+                        helperText={touched.password && errors.password}
+                        error={Boolean(errors.password && touched.password)}
+                        sx={{ mb: 1.5 }}
+                      />
+                    </FormControl>
 
                     <FlexBox justifyContent="space-between">
                       <FlexBox gap={1}>
