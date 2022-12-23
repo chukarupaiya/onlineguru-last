@@ -95,7 +95,7 @@ const JwtLogin = () => {
       >
         <Grid container>
           <Grid item sm={6} xs={12}>
-            <JustifyBox p={4} height="100%">
+            <JustifyBox height="100%">
               <img id="loginimg" src={image1} width="100%" height="100%" alt="" />
             </JustifyBox>
           </Grid>

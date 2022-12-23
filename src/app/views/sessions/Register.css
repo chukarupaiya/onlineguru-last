@@ -81,6 +81,10 @@
   cursor: pointer;
 }
 
+#loginimg {
+  padding: 40px;
+}
+
 @media screen and (max-width: 900px) {
   .reg-outer {
     width: 90%;
