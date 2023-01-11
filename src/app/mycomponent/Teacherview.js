@@ -84,7 +84,7 @@ const Teacherview = (props) => {
         endMeeting: true, // End meeting for all participant
         drawOnWhiteboard: true, // Can Draw on whiteboard
         toggleWhiteboard: true, // Can toggle whiteboard
-        toggleRecording: true, // Can toggle recording
+        toggleRecording: false, // Can toggle recording
       },
 
       joinScreen: {
