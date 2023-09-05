@@ -43,19 +43,19 @@ import MatxLayout16 from './components/MatxLayout16/MatxLayout';
 import MatxLayout17 from './components/MatxLayout17/MatxLayout';
 import MatxLayout18 from './components/MatxLayout18/MatxLayout';
 
-// const Test = () => {
-//   const user = window.localStorage.getItem('userrole');
-//   // console.log('aaaaaa' + user);
-//   if (user == 0) {
-//     return <Navigate to="dashboard/default" />;
-//   } else if (user == 1) {
-//     return <Navigate to="teacher/dashboard" />;
-//   } else if (user == 2) {
-//     return <Navigate to="admin/student" />;
-//   } else {
-//     return <Navigate to="superadmin/student" />;
-//   }
-// };
+const Navigator = () => {
+  const user = window.localStorage.getItem('userrole');
+  // console.log('aaaaaa' + user);
+  if (user === 0) {
+    return <Navigate to="dashboard/default" />;
+  } else if (user === 1) {
+    return <Navigate to="teacher/dashboard" />;
+  } else if (user === 2) {
+    return <Navigate to="admin/student" />;
+  } else {
+    return <Navigate to="/home" />;
+  }
+};
 
 const routes = [
   {
@@ -204,9 +204,13 @@ const routes = [
     ),
     children: [...Adminteacherupdate],
   },
+  {
+    path: '/',
+    element: <Navigator />,
+  },
 
   // { path: '/classroom', element: <Navigate to="dashboard/classroom" /> },
-  // { path: '*', element: <NotFound /> },
+  { path: '*', element: <NotFound /> },
 ];
 
 export default routes;
