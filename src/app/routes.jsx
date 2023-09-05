@@ -46,11 +46,11 @@ import MatxLayout18 from './components/MatxLayout18/MatxLayout';
 const Navigator = () => {
   const user = window.localStorage.getItem('userrole');
   // console.log('aaaaaa' + user);
-  if (user === 0) {
+  if (user == 0) {
     return <Navigate to="dashboard/default" />;
-  } else if (user === 1) {
+  } else if (user == 1) {
     return <Navigate to="teacher/dashboard" />;
-  } else if (user === 2) {
+  } else if (user == 2) {
     return <Navigate to="admin/student" />;
   } else {
     return <Navigate to="/home" />;

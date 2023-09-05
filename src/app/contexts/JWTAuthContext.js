@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useReducer } from 'react';
+import React, { createContext, useContext, useEffect, useReducer, useState } from 'react';
 import axios from 'axios.js';
 import { MatxLoading } from 'app/components';
 
@@ -83,7 +83,7 @@ export const AuthProvider = ({ children }) => {
       Email: email,
       Password: password,
     });
-    if (response.data.status === false) {
+    if (response.data.status == false) {
       window.alert('incorrect Email or password');
     } else {
       const { status, id, token } = response.data;
@@ -96,7 +96,7 @@ export const AuthProvider = ({ children }) => {
 
         const accessToken = { Email: email, Password: password, aToken: token };
 
-        if (Position === 0) {
+        if (Position == 0) {
           const headers = {
             'Content-Type': 'application/json',
             authorization: `Bearer ${token}`,
@@ -122,7 +122,7 @@ export const AuthProvider = ({ children }) => {
           // );
 
           setSession(accessToken, 0, result2.data.result.FirstName);
-        } else if (Position === 1) {
+        } else if (Position == 1) {
           const headers = {
             'Content-Type': 'application/json',
             authorization: `Bearer ${token}`,
@@ -137,7 +137,7 @@ export const AuthProvider = ({ children }) => {
           );
 
           setSession(accessToken, 1, result2.data.result.Name);
-        } else if (Position === 2) {
+        } else if (Position == 2) {
           const headers = {
             'Content-Type': 'application/json',
             authorization: `Bearer ${token}`,
@@ -180,7 +180,7 @@ export const AuthProvider = ({ children }) => {
   const register = async (P, data) => {
     let tempstatus;
 
-    if (P === 0) {
+    if (P == 0) {
       const response = await axios.post(
         process.env.REACT_APP_BACKEND_URL + 'authentication/register',
         {
@@ -230,16 +230,16 @@ export const AuthProvider = ({ children }) => {
 
     const { status } = tempstatus;
     const Position = P;
-    let username = data.FirstName === undefined ? data.Name : data.FirstName;
+    let username = data.FirstName == undefined ? data.Name : data.FirstName;
     if (status) {
       const accessToken = { Email: data.Email, Password: data.Password };
 
       setTimeout(async () => {
-        if (Position === 0) {
+        if (Position == 0) {
           setSession(accessToken, 0, username);
-        } else if (Position === 1) {
+        } else if (Position == 1) {
           setSession(accessToken, 1, username);
-        } else if (Position === 2) {
+        } else if (Position == 2) {
           setSession(accessToken, 2, username);
         } else {
           setSession(accessToken, 3, 'superadmin');
@@ -284,11 +284,11 @@ export const AuthProvider = ({ children }) => {
           role: Position,
         };
         if (accessToken) {
-          if (Position === 0) {
+          if (Position == 0) {
             setSession(accessToken, 0, username);
-          } else if (Position === 1) {
+          } else if (Position == 1) {
             setSession(accessToken, 1, username);
-          } else if (Position === 2) {
+          } else if (Position == 2) {
             setSession(accessToken, 2, username);
           } else {
             setSession(accessToken, 3, 'superadmin');
