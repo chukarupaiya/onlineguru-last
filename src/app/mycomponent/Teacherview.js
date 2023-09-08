@@ -11,7 +11,7 @@ const Teacherview = (props) => {
         v = c == 'x' ? r : (r & 0x3) | 0x8;
       return v.toString(16);
     });
-
+    const username = localStorage.getItem('username');
     console.log(meetingid);
 
     //updating the class link
@@ -38,7 +38,7 @@ const Teacherview = (props) => {
 
     const apiKey = process.env.REACT_APP_VIDEOSDK_API_KEY;
     const meetingId = meetingid;
-    const name = 'teacher';
+    const name = `${username}-Teacher`;
 
     const config = {
       name: name,
@@ -68,12 +68,7 @@ const Teacherview = (props) => {
 
       livestream: {
         autoStart: true,
-        outputs: [
-          // {
-          //   url: "rtmp://x.rtmp.youtube.com/live2",
-          //   streamKey: "<STREAM KEY FROM YOUTUBE>",
-          // },
-        ],
+        enabled: true,
       },
 
       permissions: {

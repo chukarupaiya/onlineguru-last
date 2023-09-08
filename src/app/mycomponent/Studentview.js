@@ -12,7 +12,6 @@ const Studentview = (props) => {
 
     const apiKey = process.env.REACT_APP_VIDEOSDK_API_KEY;
     const meetingId = meetingid;
-    const name = 'Demo User2';
 
     const config = {
       name: props.class_detail.student_name,

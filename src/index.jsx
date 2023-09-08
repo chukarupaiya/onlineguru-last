@@ -17,12 +17,14 @@ import Refund from './components/Refund';
 import Privacy from './components/Privacy';
 
 import { Routes, Route } from 'react-router-dom';
+import NotFound from 'app/views/sessions/NotFound';
 
 ReactDOM.render(
   <BrowserRouter>
     <StyledEngineProvider injectFirst>
       <Routes>
         <Route
+          exact
           path="/"
           element={
             <>
