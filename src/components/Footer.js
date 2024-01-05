@@ -41,7 +41,7 @@ const Footer = () => {
             <Link to="/contactus">
               <h5 class="fc-b">Office</h5>
             </Link>
-            <a aria-label="Chat on WhatsApp" href="https://wa.me/8220581297">
+            <a aria-label="Chat on WhatsApp" href="https://wa.me/9344095648">
               <h5 class="fc-b">Buissiness Query</h5>
             </a>
           </div>

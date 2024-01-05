@@ -22,7 +22,7 @@ const Contactus = () => {
         </div>
       </div>
       <button id="whatsapp">
-        <a aria-label="Chat on WhatsApp" href="https://wa.me/8220581297">
+        <a aria-label="Chat on WhatsApp" href="https://wa.me/9344095648">
           <img src={img4}></img>
         </a>
       </button>
@@ -35,7 +35,7 @@ const Contactus = () => {
             study skills and exam preparation from grade 1-12 (cbse , ib ,icse ,igcse)
           </p>
           <div className="inner-2-contactus">
-            <p>Ph no&emsp;&emsp;:9344095648</p>
+            <p>Ph no&emsp;&emsp;: +91 93440 95648</p>
             <p>Email&emsp;&emsp;:onlineguruofficial2020@gmail.com</p>
           </div>
         </div>
